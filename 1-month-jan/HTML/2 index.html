@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+    <style>
+        .col-6 {
+            border: 1px solid black;
+        }
+
+        .mobile-responsive {
+            background: red;
+        }
+
+        @media only screen and (max-width:600px) {
+            .mobile-responsive {
+                background: yellow;
+            }
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="mobile-responsive">
+                    <h3> Media Queries - mobile laptop responsive</h3>
+                </div>
+            </div>
+            <div class="col-6">
+                <h3> Media Elements (Images, Videos, Audio) </h3>
+                <video width="300" controls>
+                    <source src="https://pic.pikbest.com/18/28/96/57q888piCchz.mp4">
+                </video>
+                <br />
+                <audio controls>
+                    <source src="https://pixabay.com/sound-effects/search/loop/">
+                </audio>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <h3> Table</h3>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th> Age</th>
+                        <th> Clg</th>
+                        <th>class</th>
+                        <th>address </th>
+                        <th>pincode</th> 
+                    <tr>
+                        <td> HOC</td>
+                        <td> 24</td>
+                        <td> MCK</td>
+                        <td> BcomIt</td>
+                        <td> karad</td>
+                        <td>415110</td>
+                    </tr>
+                    <tr>
+                        <td> HOC</td>
+                        <td> 24</td>
+                        <td> MCK</td>
+                        <td> BcomIt</td>
+                        <td> karad</td>
+                        <td>415110</td>
+                    </tr><tr>
+                        <td> HOC</td>
+                        <td> 24</td>
+                        <td> MCK</td>
+                        <td> BcomIt</td>
+                        <td> karad</td>
+                        <td>415110</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-6">
+                <h3> Form</h3>
+                <form>
+                    <input type="text" placeholder="Enter your name" />
+                    <br/>
+                    <input type="Date"/>
+                    <br/>
+                    <br/>
+                    <input type="email">
+                    <br/>
+                    <br/>
+                    <input type="submit">
+                    <br/>
+                    <br/>
+                    <input type="checkbox"/>
+                    <br/>
+                    <input type="image">
+                    <br/>
+                    <input type="button"/>
+                    <br/>
+                    <input type="color">
+                    <br/>
+                    <input type="radio">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
