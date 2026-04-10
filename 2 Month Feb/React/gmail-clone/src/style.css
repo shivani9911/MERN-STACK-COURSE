@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+
+/* Universal Selector - Applies to all HTML elements Tags  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+
+body {
+  background: white;
+
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "GRAD" 0;
+    font-size: .975rem;
+
+}
+
+.gmail-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.gmail-header {
+  display: flex;
+  text-align: center;
+  padding: 8px 12px;
+  height: 61px;
+  background-color: #F8FAFD;
+
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.header-search {
+  max-width: 500px;
+  background: #E9EEF6;
+  border: 1px;
+  border-radius: 50px;
+}
+
+/* Side Bar Css */
+
+.Compose-btn {
+  background: #C2E7FE;
+  border: none !important;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: 600 !important;
+  box-shadow: ba(60, 64, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  color: #202124 !important;
+  text-align: center;
+}
+
+.sidebar {
+
+  padding: 9px;
+  background: #F8FAFD;
+  position: fixed;
+  bottom: 0;
+  top: 8.5%;
+}
+
+.Compose-btn:hover {
+  background: #C2E7FE;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, .3), 0 4px 8px 3px rgba(60, 64, 67, .15) !important;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-nav {
+  padding-left: 10px;
+}
+
+.nav-item {
+  padding: 10px 24px 0 20px !important;
+  height: 32px;
+  border-radius: 0 16px 16px 0 !important;
+  font-size: 16px;
+  color: #202124 !important;
+  margin: 2px 0;
+  text-decoration: none !important;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/* ========== Main content*/
+.main-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16%;
+  margin-top: 5%;
+  padding-left: 0;
+}
+
+.email-list {
+  background: #fff;
+  padding-left: 7px;
+}
+
+.email-row {
+  height: 45px;
+  cursor: pointer;
+}
+
+.star-btm {
+  font-size: 25px;
+}
+
+.read {
+  background: #F2F6FC;
+}
+
+.unread {
+  background: #FFFFFF;
+}
+
+.read .form-check-input {
+  background: #F2F6FC;
+  border: 1px solid #BEC1C5;
+}
+
+.unread .form-check-input {
+  background: #FFFFFF;
+  border: 1px solid #BEC1C5;
+}
+
+.unread {
+  font-weight: bold;
+}
+
+.tab-bar{
+  background: #fff;
+  padding-left: 7px;
+}
+.tab-row {
+  height: 45px;
+  cursor: pointer;
+}
