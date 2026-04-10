@@ -141,12 +141,3 @@ ul {
 .unread {
   font-weight: bold;
 }
-
-.tab-bar{
-  background: #fff;
-  padding-left: 7px;
-}
-.tab-row {
-  height: 45px;
-  cursor: pointer;
-}
