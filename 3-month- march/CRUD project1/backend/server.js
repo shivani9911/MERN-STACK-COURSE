@@ -22,7 +22,11 @@ console.log("Hello Node js Project Started ")
 const express = require('express') // Node js framework
 const app = express() // app - variable - stroe express function
 const mongoose = require('mongoose') // Library - connect mongodb Database
+const cors = require('cors') // Library - solve cors error
+
 app.use(express.json()) // convert all datta into json format 
+app.use(cors())
+
 // DB Connection
 mongoose.connect('mongodb://127.0.0.1:27017/item-database').then(() => console.log('mongo DB connected')).catch((error) => console.log(error))
 // Schema - Model - Data base table structure 
@@ -31,7 +35,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/item-database').then(() => console.l
 const ItemsSchema = new mongoose.Schema({
     name: String,
     description: String,
-    SellingPrice: Number
+    SellingPrice: Number,
+    purchasePrice: Number,
+    quantity: Number,
+    unit: String
+
 })
 const Items = new mongoose.model('Items', ItemsSchema) // Table Name / collection Name - Items
 
@@ -40,12 +48,15 @@ const Items = new mongoose.model('Items', ItemsSchema) // Table Name / collectio
 app.post('/api/create-item', async (req, res) => { // simple syntax
 
     try {
-        const { name, description, SellingPrice } = req.body
+        const { name, description, SellingPrice, purchasePrice, quantity, unit } = req.body
         const SaveItem = new Items(
             {
                 name,
                 description,
-                SellingPrice
+                SellingPrice,
+                purchasePrice,
+                quantity,
+                unit
             }
         )
 
@@ -79,9 +90,9 @@ app.delete('/api/delete-item', (req, res) => {
 })
 
 //API 1 - GetAll Item
-app.get('/api/get-all-item', async (req , res) => {
+app.get('/api/get-all-item', async (req, res) => {
 
-        try {
+    try {
         const items = await Items.find()
         res.status(200).json({ message: "get all item", data: items });
     } catch (error) {
