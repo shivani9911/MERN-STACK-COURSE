@@ -18,24 +18,24 @@
 //}
 //function getData(){ 
 //}
-console.log("Hello Node js Project Started ")
+console.log("Hello Node js Project Started ") // server start message
+//Required libraries import
 const express = require('express') // Node js framework
-const app = express() // app - variable - stroe express function
+const app = express() // app - variable - stroe express function // Express app initialize
 const mongoose = require('mongoose') // Library - connect mongodb Database
-const cors = require('cors') // Library - solve cors error
+const cors = require('cors') // Library - solve cors error // error handle krnysathi
 
 app.use(express.json()) // convert all datta into json format 
-app.use(cors())
+app.use(cors()) // frontend-backend connection allow krto
 
 // DB Connection
 mongoose.connect('mongodb://127.0.0.1:27017/item-database').then(() => console.log('mongo DB connected')).catch((error) => console.log(error))
 // Schema - Model - Data base table structure 
 // values store database - structure
-
 const ItemsSchema = new mongoose.Schema({
     name: String,
     description: String,
-    SellingPrice: Number,
+    sellingPrice: Number,
     purchasePrice: Number,
     quantity: Number,
     unit: String
@@ -43,27 +43,31 @@ const ItemsSchema = new mongoose.Schema({
 })
 const Items = new mongoose.model('Items', ItemsSchema) // Table Name / collection Name - Items
 
-//API 1 - Create Item 
+//API 1 - Create Item - new item add krnyasathi
 
 app.post('/api/create-item', async (req, res) => { // simple syntax
 
     try {
-        const { name, description, SellingPrice, purchasePrice, quantity, unit } = req.body
+        //new item object create 
+        const { name, description, sellingPrice, purchasePrice, quantity, unit } = req.body
         const SaveItem = new Items(
             {
                 name,
                 description,
-                SellingPrice,
+                sellingPrice,
                 purchasePrice,
                 quantity,
                 unit
             }
         )
-
+        //database madhe save
         await SaveItem.save()
-        res.status(201).json({ message: 'Item Created', data: SaveItem })
+        res.status(201).json({ message: 'Item Created', data: SaveItem })//response send
     } catch (error) {
         console.log(error)
+        res.status(500).json({
+            message: error.message
+        });
     }
 })
 
@@ -79,9 +83,14 @@ app.put('/api/update-item', (req, res) => {
 })
 
 //API 1 - Delete Item
-app.delete('/api/delete-item', (req, res) => {
+app.delete('/api/delete-item/:id', async(req, res) => {
 
     try {
+
+        const { id, } = req.params
+
+        const deleteItem = await Items.findByIdAndDelete(id)
+        res.status(200).json({ message: "Item Deleted", deleteItem: deleteItem });
 
     } catch (error) {
         console.log(error)
@@ -93,7 +102,7 @@ app.delete('/api/delete-item', (req, res) => {
 app.get('/api/get-all-item', async (req, res) => {
 
     try {
-        const items = await Items.find()
+        const items = await Items.find()//data madhun all data fetch
         res.status(200).json({ message: "get all item", data: items });
     } catch (error) {
         console.log(error)
@@ -102,7 +111,7 @@ app.get('/api/get-all-item', async (req, res) => {
 
 
 //Health API 
-app.get('/helth', (req, res) => {
+app.get('/api/health', (req, res) => {
     res.status(200).json({ message: 'server is Running' })
 })
 
